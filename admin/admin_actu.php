@@ -1,23 +1,34 @@
-<!-- admin_actu.php -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Admin - Actualités</title>
+  <title>Ajouter une actualité</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.tiny.cloud/1/pquumyqmqaewi8bdct5ogbgub2kv00j1jq662wikzn2095sq/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    tinymce.init({
+      selector: '#content',
+      plugins: 'image link lists code',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+      language: 'fr'
+    });
+  </script>
 </head>
 <body>
-  <h1>Ajouter une actualité</h1>
-  <form action="submit_actu.php" method="post" enctype="multipart/form-data">
-    <label>Titre:</label><br>
-    <input type="text" name="title" required><br><br>
+  <div class="admin-container">
+    <h1>Ajouter une Actualité</h1>
+    <form action="submit_actu.php" method="post" enctype="multipart/form-data">
+      <label for="title">Titre :</label>
+      <input type="text" name="title" id="title" required>
 
-    <label>Contenu:</label><br>
-    <textarea name="content" rows="5" cols="50" required></textarea><br><br>
+      <label for="content">Contenu :</label>
+      <textarea id="content" name="content" rows="10"></textarea>
 
-    <label>Image (optionnel):</label><br>
-    <input type="file" name="image"><br><br>
+      <label for="image">Image d'aperçu :</label>
+      <input type="file" name="image" id="image">
 
-    <input type="submit" value="Publier">
-  </form>
+      <input type="submit" value="Publier">
+    </form>
+  </div>
 </body>
 </html>
